@@ -12,8 +12,8 @@ namespace PTCGLDeckTracker.CardCollection
     {
         public string cardID { get; set; }
         public int quantity { get; set; }
-        public string englishName { get; set; }
-        public string setID {  get; set; }
+        public string englishName { get; set; } = string.Empty;
+        public string setID {  get; set; } = string.Empty;
         /// <summary>
         /// List of attack damage values as provided by the card database.
         /// Each entry corresponds to an attack on the card.  These values may
