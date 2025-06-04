@@ -17,7 +17,7 @@ namespace PTCGLDeckTracker
             candidates.AddRange(player.Bench);
 
             Player.PokemonSlot? best = null;
-            int bestDamage = -1;
+            int bestScore = int.MinValue;
 
             foreach (var slot in candidates)
             {
@@ -33,10 +33,15 @@ namespace PTCGLDeckTracker
                         break;
                     }
                 }
-                if (meets && slot.Pokemon.attackDamage > bestDamage)
+                if (meets)
                 {
-                    bestDamage = slot.Pokemon.attackDamage;
-                    best = slot;
+                    int requirement = slot.Pokemon.energyRequirements.Values.Sum();
+                    int score = slot.Pokemon.attackDamage * 10 - requirement;
+                    if (score > bestScore)
+                    {
+                        bestScore = score;
+                        best = slot;
+                    }
                 }
             }
 

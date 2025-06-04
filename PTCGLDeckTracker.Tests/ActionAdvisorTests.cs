@@ -94,4 +94,36 @@ public class ActionAdvisorTests
         Assert.Contains("Blastoise", suggestion);
         Assert.Contains("150", suggestion);
     }
+
+    [Fact]
+    public void Advisor_PrefersLowerEnergyCostWhenDamageEqual()
+    {
+        var player = new Player();
+        var expensive = new Card("p1")
+        {
+            englishName = "Expensive",
+            attackDamage = 80,
+            energyRequirements = new Dictionary<string, int> { { "Fire", 3 } }
+        };
+        var cheap = new Card("p2")
+        {
+            englishName = "Cheap",
+            attackDamage = 80,
+            energyRequirements = new Dictionary<string, int> { { "Fire", 2 } }
+        };
+
+        player.SetActivePokemon(expensive);
+        player.AttachEnergy(expensive, new Card("e1") { englishName = "Fire" });
+        player.AttachEnergy(expensive, new Card("e2") { englishName = "Fire" });
+        player.AttachEnergy(expensive, new Card("e3") { englishName = "Fire" });
+
+        player.AddBenchPokemon(cheap);
+        player.AttachEnergy(cheap, new Card("e4") { englishName = "Fire" });
+        player.AttachEnergy(cheap, new Card("e5") { englishName = "Fire" });
+
+        var suggestions = ActionAdvisor.GetSuggestions(player);
+        Assert.Equal(2, suggestions.Count);
+        Assert.Equal("Switch to Cheap", suggestions[0]);
+        Assert.Equal("Attack with Cheap for 80 damage", suggestions[1]);
+    }
 }
