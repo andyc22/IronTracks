@@ -1,12 +1,7 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MelonLoader;
 using PTCGLDeckTracker.CardCollection;
-using static ContentItemCellRow;
-using static MelonLoader.MelonLogger;
 using TPCI.Rainier.Match.Cards.Ownership;
 using TPCI.Rainier.Match.Cards;
 
