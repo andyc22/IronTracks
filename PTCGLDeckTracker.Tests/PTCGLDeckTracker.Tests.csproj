@@ -27,6 +27,10 @@
     <ProjectReference Include="..\PTCGLDeckTracker\PTCGLDeckTracker.csproj" ReferenceOutputAssembly="false" />
     <!-- Include Card.cs directly so tests can compile without building the entire project -->
     <Compile Include="..\PTCGLDeckTracker\CardCollection\Card.cs" Link="Card.cs" />
+    <Compile Include="..\PTCGLDeckTracker\Gameplay\Attack.cs" Link="Gameplay/Attack.cs" />
+    <Compile Include="..\PTCGLDeckTracker\Gameplay\PokemonCard.cs" Link="Gameplay/PokemonCard.cs" />
+    <Compile Include="..\PTCGLDeckTracker\Gameplay\BoardState.cs" Link="Gameplay/BoardState.cs" />
+    <Compile Include="..\PTCGLDeckTracker\Gameplay\ActionAdvisor.cs" Link="Gameplay/ActionAdvisor.cs" />
   </ItemGroup>
 
   <PropertyGroup>
