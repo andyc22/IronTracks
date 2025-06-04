@@ -1,5 +1,32 @@
-- name: Upload DLL artifact
-  uses: actions/upload-artifact@v4
-  with:
-    name: PTCGLDeckTracker.dll
-    path: PTCGLDeckTracker/bin/Release/net8.0/PTCGLDeckTracker.dll
+name: Build PTCGLDeckTracker DLL
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    env:
+      Project_Path: PTCGLDeckTracker/PTCGLDeckTracker.csproj
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Build DLL
+      run: dotnet build ${{ env.Project_Path }} -c Release
+
+    - name: Upload DLL artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: PTCGLDeckTracker.dll
+        path: PTCGLDeckTracker/bin/Release/net8.0/PTCGLDeckTracker.dll
