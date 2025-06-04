@@ -12,6 +12,9 @@ jobs:
 
     env:
       Project_Path: PTCGLDeckTracker/PTCGLDeckTracker.csproj
+      # Path to the game installation so the build can locate the DLLs.
+      # Customize for your own machine or CI environment.
+      PTCGL_PATH: C:\\PTCGL\\Pokemon Trading Card Game Live
 
     steps:
     - name: Checkout code
@@ -23,7 +26,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Build DLL
-      run: dotnet build ${{ env.Project_Path }} -c Release
+      run: dotnet build ${{ env.Project_Path }} -c Release -p:PTCGL_PATH="${{ env.PTCGL_PATH }}"
 
     - name: Upload DLL artifact
       uses: actions/upload-artifact@v4
