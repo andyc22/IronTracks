@@ -7,6 +7,8 @@ using MelonLoader;
 using PTCGLDeckTracker.CardCollection;
 using static ContentItemCellRow;
 using static MelonLoader.MelonLogger;
+using TPCI.Rainier.Match.Cards.Ownership;
+using TPCI.Rainier.Match.Cards;
 
 namespace PTCGLDeckTracker
 {
