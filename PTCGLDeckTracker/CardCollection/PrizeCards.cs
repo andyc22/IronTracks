@@ -56,7 +56,7 @@ namespace PTCGLDeckTracker.CardCollection
         public override void OnCardRemoved(Card3D cardRemoved)
         {
             base.OnCardRemoved(cardRemoved);
-            Melon<IronTracks>.Logger.Msg("Added Card " + cardRemoved.name + " into hand.");
+            Melon<IronTracks>.Logger.Msg("Removed Card " + cardRemoved.name + " from prize cards.");
             // Ignore if the card is unknown (this technically shouldn't be possible AFAIK)
             if (string.IsNullOrEmpty(cardRemoved.entityID) || cardRemoved.entityID.Equals("PRIVATE"))
             {
