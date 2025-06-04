@@ -12,8 +12,8 @@ namespace PTCGLDeckTracker.CardCollection
     {
         public string cardID { get; set; }
         public int quantity { get; set; }
-        public string englishName { get; set; }
-        public string setID {  get; set; }
+        public string englishName { get; set; } = string.Empty;
+        public string setID {  get; set; } = string.Empty;
 
         public Card(string cardID)
         {
