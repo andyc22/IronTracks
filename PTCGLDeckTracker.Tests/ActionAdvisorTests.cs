@@ -56,7 +56,9 @@ public class ActionAdvisorTests
         Assert.Equal(2, suggestions.Count);
         Assert.Equal("Switch to Charizard", suggestions[0]);
         Assert.Equal("Attack with Charizard for 150 damage", suggestions[1]);
+    }
 
+    [Fact]
     public void Advisor_SelectsHighestDamageAttack()
     {
         var pikachu = new PokemonCard("Pikachu", new Attack("Thunderbolt", 100, 2));
@@ -68,7 +70,7 @@ public class ActionAdvisorTests
         state.HandEnergies.Add("L");
         state.HandEnergies.Add("F");
 
-        string suggestion = ActionAdvisor.GetSuggestions(state);
+        string suggestion = Gameplay.ActionAdvisor.GetSuggestions(state);
 
         Assert.Contains("Pikachu", suggestion);
         Assert.Contains("Thunderbolt", suggestion);
@@ -87,10 +89,9 @@ public class ActionAdvisorTests
         state.HandEnergies.Add("W");
         state.HandTrainers.Add("EnergySearch");
 
-        string suggestion = ActionAdvisor.GetSuggestions(state);
+        string suggestion = Gameplay.ActionAdvisor.GetSuggestions(state);
 
         Assert.Contains("Blastoise", suggestion);
         Assert.Contains("150", suggestion);
-
     }
 }
