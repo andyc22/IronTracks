@@ -53,7 +53,9 @@ namespace PTCGLDeckTracker.Gameplay
                     if (score > bestScore)
                     {
                         bestScore = score;
+
                         bestPlay = $"Play {pokemon.Name}, attach {requiredAttachments} Energy, use {state.HandTrainers.Count} Trainer(s), attack with {attack.Name} for {damage} damage";
+
                     }
                 }
             }

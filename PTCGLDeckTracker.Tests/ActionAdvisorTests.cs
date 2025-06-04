@@ -126,7 +126,6 @@ public class ActionAdvisorTests
         Assert.Equal("Switch to Cheap", suggestions[0]);
         Assert.Equal("Attack with Cheap for 80 damage", suggestions[1]);
     }
-
     [Fact]
     public void Advisor_AppliesWeaknessResistanceAndTools()
     {
