@@ -6,6 +6,9 @@
     <!-- Path to the Pokemon TCG Live installation.
          Override with /p:PTCGL_PATH=path/to/game -->
     <PTCGL_PATH Condition="'$(PTCGL_PATH)' == ''">E:\PTCGL\Pokemon Trading Card Game Live</PTCGL_PATH>
+
+    <!-- Prevent SDK from generating assembly attributes -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
