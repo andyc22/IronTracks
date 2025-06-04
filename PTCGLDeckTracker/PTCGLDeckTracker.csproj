@@ -95,6 +95,10 @@
     <Compile Include="CardCollection\DiscardPile.cs" />
     <Compile Include="CardCollection\Hand.cs" />
     <Compile Include="CardCollection\PrizeCards.cs" />
+    <Compile Include="Gameplay\Attack.cs" />
+    <Compile Include="Gameplay\PokemonCard.cs" />
+    <Compile Include="Gameplay\BoardState.cs" />
+    <Compile Include="Gameplay\ActionAdvisor.cs" />
     <Compile Include="IronTracks.cs" />
     <Compile Include="ActionAdvisor.cs" />
     <Compile Include="Player.cs" />

@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,42 +8,47 @@ namespace PTCGLDeckTracker
 {
     internal static class ActionAdvisor
     {
-        public static List<string> GetSuggestions(Player player)
+        public static IList<string> GetSuggestions(Player player)
         {
             var suggestions = new List<string>();
-            var handCards = player.hand.GetCards();
+            var candidates = new List<Player.PokemonSlot>();
+            if (player.ActivePokemon != null)
+                candidates.Add(player.ActivePokemon);
+            candidates.AddRange(player.Bench);
 
-            if (handCards.Count == 0)
+            Player.PokemonSlot? best = null;
+            int bestDamage = -1;
+
+            foreach (var slot in candidates)
             {
-                suggestions.Add("Your hand is empty");
+                if (slot.Pokemon.energyRequirements == null)
+                    continue;
+                bool meets = true;
+                foreach (var req in slot.Pokemon.energyRequirements)
+                {
+                    int attached = slot.AttachedEnergies.Count(e => e.englishName == req.Key);
+                    if (attached < req.Value)
+                    {
+                        meets = false;
+                        break;
+                    }
+                }
+                if (meets && slot.Pokemon.attackDamage > bestDamage)
+                {
+                    bestDamage = slot.Pokemon.attackDamage;
+                    best = slot;
+                }
+            }
+
+            if (best == null)
                 return suggestions;
-            }
 
-            // Suggest attaching an energy card if available
-            var energyCard = handCards.Values.FirstOrDefault(c => c.englishName?.Contains("Energy", StringComparison.OrdinalIgnoreCase) == true);
-            if (energyCard != null)
+            if (player.ActivePokemon != best)
             {
-                suggestions.Add("Consider attaching an Energy card: " + energyCard.englishName);
+                suggestions.Add($"Switch to {best.Pokemon.englishName}");
             }
+            suggestions.Add($"Attack with {best.Pokemon.englishName} for {best.Pokemon.attackDamage} damage");
 
-            // Suggest playing a trainer card if available
-            var trainerCard = handCards.Values.FirstOrDefault(c => c.englishName?.Contains("Trainer", StringComparison.OrdinalIgnoreCase) == true);
-            if (trainerCard != null)
-            {
-                suggestions.Add("You have a Trainer card that might help: " + trainerCard.englishName);
-            }
-
-            // Suggest playing a pokemon if available
-            var pokemonCard = handCards.Values.FirstOrDefault(c => !(c.englishName?.Contains("Energy", StringComparison.OrdinalIgnoreCase) == true) && !(c.englishName?.Contains("Trainer", StringComparison.OrdinalIgnoreCase) == true));
-            if (pokemonCard != null)
-            {
-                suggestions.Add("Consider playing Pokemon: " + pokemonCard.englishName);
-            }
-
-            if (suggestions.Count == 0)
-            {
-                suggestions.Add("No obvious actions found");
-            }
             return suggestions;
         }
     }

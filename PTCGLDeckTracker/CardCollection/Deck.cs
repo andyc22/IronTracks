@@ -143,6 +143,16 @@ namespace PTCGLDeckTracker.CardCollection
                 card.quantity = quantity;
                 card.englishName = cdr.EnglishCardName;
                 card.setID = cdr.CardSetID;
+                try
+                {
+                    dynamic dynRow = cdr;
+                    foreach (var atk in dynRow.Attacks)
+                    {
+                        card.AttackDamage.Add(atk.Damage.ToString());
+                        card.EnergyRequirement.Add(atk.EnergyRequirement.ToString());
+                    }
+                }
+                catch { }
 
                 _cards[cardID] = card;
                 _cardsWithId[cardID] = quantity;
