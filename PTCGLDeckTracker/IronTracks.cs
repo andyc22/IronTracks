@@ -157,6 +157,48 @@ namespace PTCGLDeckTracker
                 player.OnRemovedCardFromCollection(data.card, __instance);
             }
         }
+
+        [HarmonyPatch]
+        class AttachEnergyPatch
+        {
+            static System.Reflection.MethodBase TargetMethod()
+            {
+                var type = HarmonyLib.AccessTools.TypeByName("AttachEnergyAction");
+                return type != null ? HarmonyLib.AccessTools.Method(type, "Execute") : null;
+            }
+            static void Postfix(dynamic __instance)
+            {
+                Card3D energy = null;
+                Card3D pokemon = null;
+                try { energy = __instance.energyCard as Card3D; } catch { }
+                try { pokemon = __instance.targetCard as Card3D; } catch { }
+                if (energy != null && pokemon != null)
+                {
+                    player.OnEnergyAttached(energy, pokemon);
+                }
+            }
+        }
+
+        [HarmonyPatch]
+        class DetachEnergyPatch
+        {
+            static System.Reflection.MethodBase TargetMethod()
+            {
+                var type = HarmonyLib.AccessTools.TypeByName("DetachEnergyAction");
+                return type != null ? HarmonyLib.AccessTools.Method(type, "Execute") : null;
+            }
+            static void Postfix(dynamic __instance)
+            {
+                Card3D energy = null;
+                Card3D pokemon = null;
+                try { energy = __instance.energyCard as Card3D; } catch { }
+                try { pokemon = __instance.targetCard as Card3D; } catch { }
+                if (energy != null && pokemon != null)
+                {
+                    player.OnEnergyDetached(energy, pokemon);
+                }
+            }
+        }
     }
 
 }
