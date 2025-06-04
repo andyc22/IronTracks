@@ -8,11 +8,17 @@ namespace PTCGLDeckTracker.Gameplay
         public int Damage { get; }
         public int EnergyCost { get; }
 
-        public Attack(string name, int damage, int energyCost)
+        /// <summary>
+        /// Energy type used for this attack, e.g. "Fire".
+        /// </summary>
+        public string Type { get; }
+
+        public Attack(string name, int damage, int energyCost, string type = "")
         {
             Name = name;
             Damage = damage;
             EnergyCost = energyCost;
+            Type = type;
         }
     }
 }

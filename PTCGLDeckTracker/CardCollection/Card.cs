@@ -16,6 +16,26 @@ namespace PTCGLDeckTracker.CardCollection
         public Dictionary<string, int> energyRequirements { get; set; }
         public string englishName { get; set; } = string.Empty;
         public string setID {  get; set; } = string.Empty;
+
+        /// <summary>
+        /// Optional ability text printed on the card.
+        /// </summary>
+        public string? Ability { get; set; }
+
+        /// <summary>
+        /// Weakness type string.
+        /// </summary>
+        public string Weakness { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Resistance type string.
+        /// </summary>
+        public string Resistance { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Tool cards currently attached to the Pokémon represented by this card.
+        /// </summary>
+        public List<string> ToolCards { get; } = new List<string>();
         /// <summary>
         /// List of attack damage values as provided by the card database.
         /// Each entry corresponds to an attack on the card.  These values may
@@ -45,6 +65,11 @@ namespace PTCGLDeckTracker.CardCollection
 
             attackDamage = card.attackDamage;
             energyRequirements = new Dictionary<string, int>(card.energyRequirements);
+
+            Ability = card.Ability;
+            Weakness = card.Weakness;
+            Resistance = card.Resistance;
+            ToolCards.AddRange(card.ToolCards);
 
         }
 
