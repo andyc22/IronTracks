@@ -21,6 +21,7 @@ Iron Tracks is a Unity Mod using MelonLoader API to load the modules into the ga
 # Controls
 - Press Z to enable the Deck Tracker
 - Press X to enable the Prize Tracker
+- Press V to toggle the Action Advisor overlay
 
 # Gallery
 ![Pre Deck Search](https://github.com/Bratah123/IronTracks/assets/58405975/0b6e2704-aedb-479f-b735-dcf4382e95c7)
