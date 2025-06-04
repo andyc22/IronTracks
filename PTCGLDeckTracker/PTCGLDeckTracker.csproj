@@ -96,6 +96,7 @@
     <Compile Include="CardCollection\Hand.cs" />
     <Compile Include="CardCollection\PrizeCards.cs" />
     <Compile Include="IronTracks.cs" />
+    <Compile Include="ActionAdvisor.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

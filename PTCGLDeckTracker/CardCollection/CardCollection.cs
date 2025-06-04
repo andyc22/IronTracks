@@ -45,5 +45,10 @@ namespace PTCGLDeckTracker.CardCollection
         {
             _cardCount--;
         }
+
+        public IReadOnlyDictionary<string, Card> GetCards()
+        {
+            return _cards;
+        }
     }
 }
