@@ -5,20 +5,28 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTCGLDeckTracker", "PTCGLDeckTracker.csproj", "{39907106-D171-4AF3-9F85-053DB6A4F731}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTCGLDeckTracker.Tests", "..\PTCGLDeckTracker.Tests\PTCGLDeckTracker.Tests.csproj", "{46B21891-FC7F-4073-B28B-F0817F3EB32F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Prod|Any CPU = Prod|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{39907106-D171-4AF3-9F85-053DB6A4F731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39907106-D171-4AF3-9F85-053DB6A4F731}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39907106-D171-4AF3-9F85-053DB6A4F731}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
-		{39907106-D171-4AF3-9F85-053DB6A4F731}.Prod|Any CPU.Build.0 = Prod|Any CPU
-		{39907106-D171-4AF3-9F85-053DB6A4F731}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39907106-D171-4AF3-9F85-053DB6A4F731}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
+GlobalSection(ProjectConfigurationPlatforms) = postSolution
+{39907106-D171-4AF3-9F85-053DB6A4F731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+{39907106-D171-4AF3-9F85-053DB6A4F731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+{39907106-D171-4AF3-9F85-053DB6A4F731}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+{39907106-D171-4AF3-9F85-053DB6A4F731}.Prod|Any CPU.Build.0 = Prod|Any CPU
+{39907106-D171-4AF3-9F85-053DB6A4F731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+{39907106-D171-4AF3-9F85-053DB6A4F731}.Release|Any CPU.Build.0 = Release|Any CPU
+{46B21891-FC7F-4073-B28B-F0817F3EB32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+{46B21891-FC7F-4073-B28B-F0817F3EB32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+{46B21891-FC7F-4073-B28B-F0817F3EB32F}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+{46B21891-FC7F-4073-B28B-F0817F3EB32F}.Prod|Any CPU.Build.0 = Prod|Any CPU
+{46B21891-FC7F-4073-B28B-F0817F3EB32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+{46B21891-FC7F-4073-B28B-F0817F3EB32F}.Release|Any CPU.Build.0 = Release|Any CPU
+EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
