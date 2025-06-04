@@ -61,8 +61,8 @@ public class ActionAdvisorTests
     [Fact]
     public void Advisor_SelectsHighestDamageAttack()
     {
-        var pikachu = new PokemonCard("Pikachu", new Attack("Thunderbolt", 100, 2));
-        var charmander = new PokemonCard("Charmander", new Attack("Flame", 70, 1));
+        var pikachu = new PokemonCard("Pikachu", new Attack("Thunderbolt", 100, 2, "Lightning"));
+        var charmander = new PokemonCard("Charmander", new Attack("Flame", 70, 1, "Fire"));
         var state = new BoardState();
         state.HandPokemon.Add(pikachu);
         state.HandPokemon.Add(charmander);
@@ -80,8 +80,8 @@ public class ActionAdvisorTests
     [Fact]
     public void Advisor_UsesTrainerToMeetEnergyRequirement()
     {
-        var blastoise = new PokemonCard("Blastoise", new Attack("Hydro Pump", 150, 3));
-        var pikachu = new PokemonCard("Pikachu", new Attack("Quick Attack", 50, 1));
+        var blastoise = new PokemonCard("Blastoise", new Attack("Hydro Pump", 150, 3, "Water"));
+        var pikachu = new PokemonCard("Pikachu", new Attack("Quick Attack", 50, 1, "Lightning"));
         var state = new BoardState();
         state.HandPokemon.Add(blastoise);
         state.HandPokemon.Add(pikachu);
@@ -125,5 +125,30 @@ public class ActionAdvisorTests
         Assert.Equal(2, suggestions.Count);
         Assert.Equal("Switch to Cheap", suggestions[0]);
         Assert.Equal("Attack with Cheap for 80 damage", suggestions[1]);
+    }
+    [Fact]
+    public void Advisor_AppliesWeaknessResistanceAndTools()
+    {
+        var charmander = new PokemonCard("Charmander", new Attack("Flare", 50, 1, "Fire"))
+        {
+            Ability = "Power Boost"
+        };
+        charmander.ToolCards.Add("Muscle Band");
+
+        var squirtle = new PokemonCard("Squirtle", new Attack("Water Gun", 60, 1, "Water"));
+
+        var state = new BoardState();
+        state.HandPokemon.Add(charmander);
+        state.HandPokemon.Add(squirtle);
+        state.HandEnergies.Add("F");
+        state.HandEnergies.Add("W");
+
+        state.OpponentActivePokemon = new PokemonCard("Steelix") { Weakness = "Fire" };
+
+        string suggestion = Gameplay.ActionAdvisor.GetSuggestions(state);
+
+        Assert.Contains("Charmander", suggestion);
+        Assert.Contains("Flare", suggestion);
+        Assert.Contains("160", suggestion);
     }
 }
