@@ -35,6 +35,19 @@ Cross‑platform builds are still experimental because the game libraries are
 Windows‑only, but targeting .NET 8 allows the project to compile on more
 platforms as long as the proprietary dependencies are available.
 
+
+The project references DLLs from the game's installation folder. Set the
+`PTCGL_PATH` MSBuild property to point to your copy of *Pokemon TCG Live* so
+that the build system can locate these files. You can pass it on the command
+line:
+
+```bash
+dotnet build -p:PTCGL_PATH="C:\\Games\\Pokemon TCG Live"
+```
+
+Or create a `Directory.Build.props` file in the repository root defining the
+`PTCGL_PATH` property for repeated builds.
+=======
 To build the project you must set the `PTCGL_PATH` environment variable to the
 folder containing your PTCGL installation. The build expects to find the
 `MelonLoader` directory and the game's `Pokemon TCG Live_Data/Managed` directory
@@ -46,6 +59,7 @@ set PTCGL_PATH=E:\PTCGL\Pokemon Trading Card Game Live
 
 On other platforms adjust the path accordingly so the libraries can be located
 when running `dotnet build`.
+
 
 # Developer Notes/FAQ
 - Q: My MelonLoader isn't loading your mod correctly, how do I fix this?
