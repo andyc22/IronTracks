@@ -18,6 +18,7 @@ namespace PTCGLDeckTracker
     {
         bool enableDeckTracker = false;
         bool enablePrizeCards = false;
+        bool enableActionAdvisor = false;
         static Player player = new Player();
         const String GAME_SCENE_NAME = "Match_Landscape";
 
@@ -32,6 +33,11 @@ namespace PTCGLDeckTracker
             {
                 enablePrizeCards = !enablePrizeCards;
                 LoggerInstance.Msg("Toggled Prize Tracker: " + enablePrizeCards.ToString());
+            }
+            else if (Input.GetKeyDown(KeyCode.V))
+            {
+                enableActionAdvisor = !enableActionAdvisor;
+                LoggerInstance.Msg("Toggled Action Advisor: " + enableActionAdvisor.ToString());
             }
             else if (Input.GetKeyDown(KeyCode.C) && SceneManager.GetActiveScene().name == GAME_SCENE_NAME)
             {
@@ -88,6 +94,23 @@ namespace PTCGLDeckTracker
                 var textLocation = new Rect(5, height + 25, width, 500);
                 GUI.Box(location, "Prize Cards");
                 GUI.Label(textLocation, player.GetPrizeCards().PrizeCardStringForRender(), deckGUIStyle);
+            }
+
+            if (enableActionAdvisor)
+            {
+                var suggestions = ActionAdvisor.GetSuggestions(player);
+                var text = string.Join("\n", suggestions);
+                var width = 300;
+                var boxHeight = Math.Max(100, text.Count(c => c == '\n') * 20 + 25);
+                var location = new Rect(0, 0, width, boxHeight);
+                var textLocation = new Rect(5, 25, width, boxHeight);
+
+                var guiStyle = new GUIStyle();
+                guiStyle.normal.textColor = Color.white;
+                guiStyle.fontSize = 15;
+
+                GUI.Box(location, "Advisor");
+                GUI.Label(textLocation, text, guiStyle);
             }
         }
 

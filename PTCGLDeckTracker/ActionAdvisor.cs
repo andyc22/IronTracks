@@ -1,3 +1,5 @@
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using PTCGLDeckTracker.CardCollection;
@@ -46,6 +48,7 @@ namespace PTCGLDeckTracker
                 suggestions.Add($"Switch to {best.Pokemon.englishName}");
             }
             suggestions.Add($"Attack with {best.Pokemon.englishName} for {best.Pokemon.attackDamage} damage");
+
             return suggestions;
         }
     }
