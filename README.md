@@ -27,6 +27,15 @@ Iron Tracks is a Unity Mod using MelonLoader API to load the modules into the ga
 ![Pre Deck Search](https://github.com/Bratah123/IronTracks/assets/58405975/0b6e2704-aedb-479f-b735-dcf4382e95c7)
 ![Post Deck Search](https://github.com/Bratah123/IronTracks/assets/58405975/56a0d6b8-02cd-4521-a57e-29ca76cecf30)
 
+# Building From Source
+Iron Tracks targets **.NET Framework 4.7.2** because the game libraries shipped with PTCGL only
+provide that runtime. To compile the mod yourself you need the
+[.NET Framework 4.7.2 Developer Pack](https://learn.microsoft.com/dotnet/framework/install/).
+The test project uses the .NET 8 SDK, so make sure that is available as well.
+
+Cross‑platform builds are not yet supported, but we aim to provide a .NET 8 target in the
+future so the tracker can be compiled on non‑Windows systems.
+
 # Developer Notes/FAQ
 - Q: My MelonLoader isn't loading your mod correctly, how do I fix this?
   - A: The only valid Melon Loader version for the current PTCGL is v0.5.7
