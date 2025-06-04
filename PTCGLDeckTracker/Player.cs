@@ -12,7 +12,7 @@ using TPCI.Rainier.Match.Cards;
 
 namespace PTCGLDeckTracker
 {
-    internal class Player
+    internal partial class Player
     {
         public string username { get; set; }
 

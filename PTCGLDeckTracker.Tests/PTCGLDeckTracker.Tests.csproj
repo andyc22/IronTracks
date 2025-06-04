@@ -27,6 +27,8 @@
     <ProjectReference Include="..\PTCGLDeckTracker\PTCGLDeckTracker.csproj" ReferenceOutputAssembly="false" />
     <!-- Include Card.cs directly so tests can compile without building the entire project -->
     <Compile Include="..\PTCGLDeckTracker\CardCollection\Card.cs" Link="Card.cs" />
+    <Compile Include="..\PTCGLDeckTracker\Player.State.cs" Link="Player.State.cs" />
+    <Compile Include="..\PTCGLDeckTracker\ActionAdvisor.cs" Link="ActionAdvisor.cs" />
   </ItemGroup>
 
   <PropertyGroup>
