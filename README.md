@@ -12,11 +12,11 @@ Iron Tracks is a Unity Mod using MelonLoader API to load the modules into the ga
 
    ![image](https://github.com/Bratah123/IronTracks/assets/58405975/d877e7b2-9a2b-4811-9402-952b5df53c73)
 
-4. Open up `IronTracks.zip` (Note that inside the zip you should see a `IronTracks` folder) extract all the contents of `IronTracks` folder (not to be confused with the .zip) into your PTCGL's client's folder.
+3. Open up `IronTracks.zip` (Note that inside the zip you should see a `IronTracks` folder) extract all the contents of `IronTracks` folder (not to be confused with the .zip) into your PTCGL's client's folder.
 
    ![image](https://github.com/Bratah123/IronTracks/assets/58405975/790d7087-eea0-4d80-9ddc-3473650bf600)
 
-3. Press Z/X in-game to toggle the Deck Tracker UI!
+4. Press Z/X in-game to toggle the Deck Tracker UI!
 
 # Controls
 - Press Z to enable the Deck Tracker
