@@ -8,7 +8,7 @@ Iron Tracks is a Unity Mod using MelonLoader API to load the modules into the ga
 
    ![image](https://github.com/Bratah123/IronTracks/assets/58405975/7df72072-6bca-4833-9bd6-046b4fa24807)
 
-2. Download the latest verison zip in the Release Page.
+2. Download the latest version zip in the Release Page.
 
    ![image](https://github.com/Bratah123/IronTracks/assets/58405975/d877e7b2-9a2b-4811-9402-952b5df53c73)
 
