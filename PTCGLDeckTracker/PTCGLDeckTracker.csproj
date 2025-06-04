@@ -3,6 +3,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>PTCGLDeckTracker</RootNamespace>
+    <!-- Prevent SDK from generating assembly attributes -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
