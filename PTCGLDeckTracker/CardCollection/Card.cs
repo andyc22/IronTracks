@@ -12,6 +12,8 @@ namespace PTCGLDeckTracker.CardCollection
     {
         public string cardID { get; set; }
         public int quantity { get; set; }
+        public int attackDamage { get; set; }
+        public Dictionary<string, int> energyRequirements { get; set; }
         public string englishName { get; set; } = string.Empty;
         public string setID {  get; set; } = string.Empty;
         /// <summary>
@@ -31,6 +33,7 @@ namespace PTCGLDeckTracker.CardCollection
         public Card(string cardID)
         {
             this.cardID = cardID;
+            this.energyRequirements = new Dictionary<string, int>();
         }
 
         public Card(Card card)
@@ -39,8 +42,10 @@ namespace PTCGLDeckTracker.CardCollection
             quantity = card.quantity;
             englishName = card.englishName;
             setID = card.setID;
-            AttackDamage = new List<string>(card.AttackDamage);
-            EnergyRequirement = new List<string>(card.EnergyRequirement);
+
+            attackDamage = card.attackDamage;
+            energyRequirements = new Dictionary<string, int>(card.energyRequirements);
+
         }
 
         public override string ToString()
