@@ -35,6 +35,18 @@ Cross‑platform builds are still experimental because the game libraries are
 Windows‑only, but targeting .NET 8 allows the project to compile on more
 platforms as long as the proprietary dependencies are available.
 
+To build the project you must set the `PTCGL_PATH` environment variable to the
+folder containing your PTCGL installation. The build expects to find the
+`MelonLoader` directory and the game's `Pokemon TCG Live_Data/Managed` directory
+inside this path. For example on Windows this might be:
+
+```
+set PTCGL_PATH=E:\PTCGL\Pokemon Trading Card Game Live
+```
+
+On other platforms adjust the path accordingly so the libraries can be located
+when running `dotnet build`.
+
 # Developer Notes/FAQ
 - Q: My MelonLoader isn't loading your mod correctly, how do I fix this?
   - A: The only valid Melon Loader version for the current PTCGL is v0.5.7
